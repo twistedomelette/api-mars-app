@@ -1,0 +1,26 @@
+.home-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5em;
+    gap: 30px;
+}
+
+.rovers-select {
+    padding: 10px 300px;
+    border: 2px solid darkorange;
+    border-radius: 5px;
+    background-color: lightyellow;
+    font-size: 20px;
+}
+
+.rovers-find {
+    text-decoration: none;
+    color: black;
+    border: 2px solid black;
+    border-radius: 15px;
+    font-size: 18px;
+    padding: 10px 40px;
+}
+

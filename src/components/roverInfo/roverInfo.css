@@ -1,0 +1,16 @@
+.photo-container {
+    padding: 10px 4px;
+    width: 300px;
+    height: 336px;
+    margin-top: 65px;
+    border: 2px solid black;
+}
+
+.photo-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: end;
+    margin-top: 10px;
+}

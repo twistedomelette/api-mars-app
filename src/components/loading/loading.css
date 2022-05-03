@@ -1,0 +1,21 @@
+.not_found {
+    display: flex;
+    height: 90vh;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-info {
+    margin-bottom: 8px;
+    text-align: center;
+    margin-top: 0;
+    font-size: 32px;
+}

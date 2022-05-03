@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {getPhotos, getRovers} from "./api/api";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Home} from "./components/home/home";
+import {RoversList} from "./components/roversList/roversList";
+import {NotFound} from "./components/not-found/not-found";
+import {Loading} from "./components/loading/loading";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const dispatch = useDispatch();
+    const rovers = useSelector(state => state.mars.rovers);
+    const photos = useSelector(state => state.mars.photos);
+
+    useEffect(() => {
+        dispatch(getRovers());
+        dispatch(getPhotos());
+    }, [dispatch])
+
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path={'/'} element={rovers.length ? <Home/> : <Loading/>}/>
+                <Route path={'/rovers'} element={photos.length ? <RoversList/> : <Loading/>}/>
+                <Route path={'*'} element={<NotFound/>}/>
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
